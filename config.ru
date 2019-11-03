@@ -9,10 +9,12 @@ module Frack
     class << self
       def call(env)
         if env['PATH_INFO'] == '/'
-          @users = ['Anthony Stark', 'Peter Parker', 'Bruce Wayne', 'Tam', 'Toan', 'Tu']
-          Rack::Response.new(render('welcome/index'))
+          Rack::Response.new(render 'welcome/index')
+        elsif env['PATH_INFO'] == '/users'
+          @users = ['Toan', 'Son', 'Tri', 'Tu', 'Tam']
+          Rack::Response.new(render 'users/index')
         else
-          Rack::Response.new(render('users/index'))
+          Rack::Response.new('Not Found', 404)
         end
       end
 
