@@ -12,7 +12,7 @@ module Frack
           @users = ['Anthony Stark', 'Peter Parker', 'Bruce Wayne', 'Tam', 'Toan', 'Tu']
           Rack::Response.new(render('welcome/index'))
         else
-          Rack::Response.new('Not found', 404)
+          Rack::Response.new(render('users/index'))
         end
       end
 
