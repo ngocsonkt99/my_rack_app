@@ -41,7 +41,6 @@ end
 
 class WelcomeController < Frack::BaseController
   def index
-    @users = %w[welcome to rack mvc]
     render('welcome/index')
   end
 end
