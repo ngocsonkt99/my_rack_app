@@ -9,10 +9,9 @@ module Frack
     class << self
       def call(env)
         if env['PATH_INFO'] == '/'
-          Rack::Response.new(render('welcome/index'))
+          Rack::Response.new(WelcomeController.new.index)
         elsif env['PATH_INFO'] == '/users'
-          @users = %w[Toan Son Tri Tu Tam]
-          Rack::Response.new(render('users/index'))
+          Rack::Response.new(UsersController.new.index)
         else
           Rack::Response.new('Not Found', 404)
         end
@@ -40,8 +39,14 @@ class UsersController < Frack::BaseController
   end
 end
 
+class WelcomeController < Frack::BaseController
+  def index
+    @users = %w[welcome to rack mvc]
+    render('welcome/index')
+  end
+end
+
 use Rack::Static, root: 'public', urls: ['/images', '/js', '/css']
 use Rack::CommonLogger
 use Rack::ContentLength
 run Frack::Application
- 
