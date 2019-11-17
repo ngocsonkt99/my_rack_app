@@ -9,25 +9,26 @@ module Frack
     class << self
       def call(env)
         if env['PATH_INFO'] == '/'
-          Rack::Response.new(render 'welcome/index')
+          Rack::Response.new(render('welcome/index'))
         elsif env['PATH_INFO'] == '/users'
-          @users = ['Toan', 'Son', 'Tri', 'Tu', 'Tam']
-          Rack::Response.new(render 'users/index')
+          @users = %w[Toan Son Tri Tu Tam]
+          Rack::Response.new(render('users/index'))
         else
           Rack::Response.new('Not Found', 404)
         end
       end
+    end
+  end
 
-      def render(view)
-        puts "------------------------------> view: #{view}"
-        render_template('layouts/application') do
-          render_template(view)
-        end
+  class BaseController
+    def render(view)
+      render_template('layouts/application') do
+        render_template(view)
       end
+    end
 
-      def render_template(path, &block)
-        Tilt.new("app/views/#{path}.html.erb").render(self, &block)
-      end
+    def render_template(path, &block)
+      Tilt.new("app/views/#{path}.html.erb").render(self, &block)
     end
   end
 end
