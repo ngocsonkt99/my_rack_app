@@ -32,7 +32,8 @@ module Frack
     end
   end
 end
-class UsersController
+
+class UsersController < Frack::BaseController
   def index
     @users = %w[Toan Tri Son Tu Tam]
     render('users/index')
@@ -43,4 +44,4 @@ use Rack::Static, root: 'public', urls: ['/images', '/js', '/css']
 use Rack::CommonLogger
 use Rack::ContentLength
 run Frack::Application
-UsersController < Frack::BaseController
+ 
