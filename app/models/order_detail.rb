@@ -1,4 +1,3 @@
-class Order_detail
-  def self.all
-  end
+class OrderDetail
+
 end
