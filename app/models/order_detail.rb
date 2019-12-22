@@ -1,3 +1,3 @@
-class OrderDetail
+class OrderDetail < ActiveRecord::Base
 
 end
