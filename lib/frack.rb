@@ -2,14 +2,14 @@ $LOAD_PATH << File.expand_path(File.dirname(__FILE__))
 $LOAD_PATH << File.expand_path('../', File.dirname(__FILE__))
 require 'rack'
 require 'tilt'
-
+require 'bcrypt'
 ENV['APP_ENV'] || 'development'
 
 require 'erb'
 require 'active_record'
 
 require_relative '../config/database'
-
+require 'app/validators/category_validator.rb'
 require 'app/models/user.rb'
 require 'app/models/product.rb'
 require 'app/models/category.rb'
