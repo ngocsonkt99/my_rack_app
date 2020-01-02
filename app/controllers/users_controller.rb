@@ -1,6 +1,6 @@
 class UsersController < Frack::BaseController
   def index
-    @user = User.all
+    @users = User.all
     render('users/index')
   end
 
