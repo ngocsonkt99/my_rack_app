@@ -8,7 +8,7 @@ module Frack
       {
         request_method: 'get',
         request_path: '/',
-        mapping: 'WelcomeController#new'
+        mapping: 'WelcomeController#index'
       },
       {
         request_method: 'get',
@@ -31,7 +31,8 @@ module Frack
        i[:request_path] == request_path
      end
 
-     if (mapping = ROUTES[env['PATH_INFO']])
+     if route
+       mapping = route[:mapping]
        env.merge!(controller_action(mapping))
        @app.call(env)
      else
