@@ -13,8 +13,8 @@ module Frack
       def dispatch
         controller = env['controller']
         action = env['action']
-        klass_controller = Object.const_get(controller)
-        obj_controller = klass_controller.new
+        klass_controller = Object.const_get(env['controller'])
+        obj_controller = klass_controller.new(env)
         obj_controller.public_send(action)
       end
     end
