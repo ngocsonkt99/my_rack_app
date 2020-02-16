@@ -23,7 +23,7 @@ GEM
     pg (1.1.4)
     puma (4.2.1)
       nio4r (~> 2.0)
-    rack (2.0.7)
+    rack (2.0.8)
     thread_safe (0.3.6)
     tilt (2.0.10)
     tzinfo (1.2.5)
