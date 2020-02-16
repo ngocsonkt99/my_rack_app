@@ -15,6 +15,7 @@ GEM
     bcrypt (3.1.13)
     byebug (11.0.1)
     concurrent-ruby (1.1.5)
+    dotenv (2.7.5)
     i18n (1.7.0)
       concurrent-ruby (~> 1.0)
     minitest (5.13.0)
@@ -36,6 +37,7 @@ DEPENDENCIES
   activerecord
   bcrypt (~> 3.1.7)
   byebug
+  dotenv
   pg
   puma
   rack

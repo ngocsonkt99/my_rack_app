@@ -10,4 +10,6 @@ gem 'byebug'
 gem 'pg'
 gem 'activerecord'
 gem 'bcrypt', '~> 3.1.7'
+gem 'dotenv'
+
 # gem "rails"
